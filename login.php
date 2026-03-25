@@ -4,23 +4,38 @@ include("conexion.php");
 
 if(isset($_POST['correo'])){
 
-$correo=$_POST['correo'];
-$password=$_POST['password'];
+    $correo = $_POST['correo'];
+    $password = $_POST['password'];
 
-$sql="SELECT * FROM usuarios where correo='$correo' AND password='$password'";
-$resultado=mysqli_query($conexion,$sql);
+    // 🔐 Buscar usuario SOLO por correo (NO contraseña)
+    $sql = "SELECT * FROM usuarios WHERE correo = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->bind_param("s", $correo);
+    $stmt->execute();
 
-if(mysqli_num_rows($resultado)>0){
+    $resultado = $stmt->get_result();
 
-$_SESSION['usuario']=$correo;
-header("Location:dashboard.php");
+    if($resultado->num_rows === 1){
 
-}else{
+        $usuario = $resultado->fetch_assoc();
 
-$error="Datos Incorrectos";
+        // 🔐 Verificar contraseña encriptada
+        if(password_verify($password, $usuario['password'])){
+
+            $_SESSION['usuario'] = $usuario['correo'];
+            header("Location: dashboard.php");
+            exit();
+
+        } else {
+            $error = "Contraseña incorrecta";
+        }
+
+    } else {
+        $error = "Usuario no encontrado";
+    }
+
+    $stmt->close();
 }
-}
-
 ?>
 
 <!DOCTYPE html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 25-03-2026 a las 17:36:04
+-- Tiempo de generación: 25-03-2026 a las 18:58:48
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,7 +78,7 @@ CREATE TABLE `usuarios` (
   `apellido` varchar(50) DEFAULT NULL,
   `tipo_usuario` varchar(20) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL,
-  `password` varchar(100) DEFAULT NULL,
+  `password` varchar(255) DEFAULT NULL,
   `token` varchar(100) DEFAULT NULL,
   `token_expira` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -88,8 +88,7 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`id`, `nombre`, `apellido`, `tipo_usuario`, `correo`, `password`, `token`, `token_expira`) VALUES
-(5, 'Nicolas', 'Osorio', 'Administrador', 'nicoosoriovenegas2004@gmail.com', '1234', NULL, '2026-03-25 18:33:56'),
-(6, 'Diego', 'Alvarez', 'Administrador', 'diego@gmail.com', '1234', NULL, NULL);
+(13, 'Nicolas', 'Osorio', 'Administrador', 'nicoosoriovenegas2004@gmail.com', '$2y$10$fiUeEhRtVM/wLiJdNRytgurMSFNDXvbJFxoN8RwYWFoY62TsBkNcy', NULL, NULL);
 
 --
 -- Índices para tablas volcadas
@@ -111,7 +110,8 @@ ALTER TABLE `docentes`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `correo` (`correo`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
@@ -133,7 +133,7 @@ ALTER TABLE `docentes`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

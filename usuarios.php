@@ -58,7 +58,6 @@ $resultado = mysqli_query($conexion, $sql);
 <th>Apellido</th>
 <th>Tipo de Usuario</th>
 <th>Correo</th>
-<th>Password</th>
 <th>Acciones</th>
 </tr>
 
@@ -70,7 +69,6 @@ $resultado = mysqli_query($conexion, $sql);
     <td><?php echo $fila['apellido']; ?></td>
     <td><?php echo $fila['tipo_usuario']; ?></td>
     <td><?php echo $fila['correo']; ?></td>
-    <td><?php echo $fila['password']; ?></td>
 
     <td>
         <a href="editar_usuario.php?id=<?php echo $fila['id']; ?>" class="btn btn-warning btn-sm">Editar</a>
