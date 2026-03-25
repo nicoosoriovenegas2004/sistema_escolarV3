@@ -23,6 +23,8 @@ header("Location:login.php");
 
 <span class="navbar-brand">Sistema Escolar</span>
 
+<img src="imagenes/logo.png" class="logo-inicio mb-3"width="100" height="59">
+
 <a href="logout.php" class="btn btn-danger">Cerrar Sesion</a>
 
 </div>
@@ -64,6 +66,17 @@ header("Location:login.php");
 
 </div>
 </div>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("imagenes/fondo6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
 
 </body>
 </html>

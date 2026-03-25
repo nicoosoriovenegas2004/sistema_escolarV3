@@ -71,5 +71,16 @@ $fila = mysqli_fetch_assoc($resultado);
 
 </div>
 
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("imagenes/fondo6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
+
 </body>
 </html>
