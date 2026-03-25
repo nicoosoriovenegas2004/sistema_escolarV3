@@ -59,6 +59,8 @@ if(isset($_POST['correo'])){
 <div class="card shadow">
 
 <div class="card-body">
+    
+<img src="imagenes/logo.png" class="logo-inicio mb-3"width="159" height="100">
 
 <h3>Iniciar de Sesión</h3>
 
@@ -81,6 +83,17 @@ if(isset($_POST['correo'])){
 </div>
 </div>
 </div>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background-image: url("imagenes/fondo6.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+</style>
 
 </body>
 </html>
